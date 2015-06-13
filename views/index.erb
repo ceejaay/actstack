@@ -1,15 +1,23 @@
+
 <h1>Act Stack</h1></br>
+<p>Write a new premise</p>
 <form action="/new_premise" method="post">
  <input type="text" name="premise" > 
 
   <input type="submit">
 </form>
 
-<h3>Premise</h3></br>
- <p><%= @premise %> </p>
-<h3>Act 1</h3></br>
- <p><%= @premise %> </p>
-<h3>Act 2</h3></br>
- <p><%= @premise %> </p>
-<h3>Act 3</h3></br>
- <p><%= @premise %> </p>
+
+<h3>Here's a list of premises</h3>
+
+<% @premise.each do |item| %>
+ <table border="1">
+  <th>Premise</th>
+  <th>Link</th>
+  <tr>
+    <td> <p><%= item %></p> </td>
+    <td> <p>Heres the link</p></td>
+  </tr>
+ </table>
+<% end %>
+
