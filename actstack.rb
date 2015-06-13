@@ -8,6 +8,8 @@ end
 
 
 post "/new_premise" do
-  @premise = params
-  redirect "/"
+  @premise = params["premise"]
+  erb :index
 end
+
+
