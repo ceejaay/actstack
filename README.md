@@ -1,5 +1,10 @@
 The first thing to do when you get to the site is create a premise. Then you can start making acts for it.
 
+The front page:
+List of premises.
+Create a premise.
+When you create a premise it sends you to another page where you can start writing acts for the premise.
+
 
 
 
