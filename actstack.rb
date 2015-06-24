@@ -16,4 +16,7 @@ post "/new_premise" do
   erb :index
 end
 
+get "/ideas" do
+  markdown :README
+end
 
