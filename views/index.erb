@@ -11,11 +11,14 @@
 <h3>Here's a list of premises</h3>
 
 <table border="1">
+  <th>Number</th>
   <th>Here is the data</th>
   <th>Link</th>
     <% @list.each do |item| %>
     <tr>
+      <td><%= item.id %></td>
       <td><%= item.premise %></td>
+      <td><a href="/<%= item.id %>">Show</a></td>
     </tr>
     <% end %>
 </table>

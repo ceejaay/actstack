@@ -26,6 +26,11 @@ get "/premise/:id" do
   erb :show 
 end
 
+get "/:id" do
+  @premise = Premise.get params[:id]
+  erb :show
+end
+
 
 get "/ideas" do
   markdown :README

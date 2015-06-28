@@ -1,1 +1,11 @@
-<%= @post %>
+<table border="1">
+  <th>The premise</th>
+  <th>Edit?</th>
+  <th>Delete</th>
+    <tr>
+      <td><%= @premise.premise %></td>
+      <td><%= "[edit]"%></td>
+      <td><%= "[delete]"%></td>
+    </tr>
+</table>
+
