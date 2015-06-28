@@ -6,6 +6,7 @@ class Premise
   include DataMapper::Resource
   property :id, Serial
   property :premise, Text
+  #need date and time created/modified
 
 end
 

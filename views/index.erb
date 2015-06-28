@@ -10,15 +10,12 @@
 
 <h3>Here's a list of premises</h3>
 
-
-<% @all_premise.each do |item| %>
- <table border="1">
-  <th>Premise</th>
+<table border="1">
+  <th>Here is the data</th>
   <th>Link</th>
-  <tr>
-    <td> <p><%= item %></p> </td>
-    <td> <p>Heres the link</p></td>
-  </tr>
- </table>
-<% end %>
-
+    <% @list.each do |item| %>
+    <tr>
+      <td><%= item.premise %></td>
+    </tr>
+    <% end %>
+</table>

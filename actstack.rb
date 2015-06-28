@@ -1,26 +1,28 @@
 require 'sinatra'
-require './actstack_model.rb'
+require './actstack_model'
 
 
 get "/" do
- @all_premise = Premise.all
-  puts @all_premise.class
+  @list = Premise.all
   erb :index
 end
 
 
 post "/new_premise" do
-  @premise = Premise.create
-  @premise.save
-  #the new premise should go to the show premise page.
-  #erb :show_premise
-#right now it should show the new premise in the index 
-  erb :index
+#code to create premise
+  n = Premise.new
+  n.premise = params[:premise]
+  n.save
+  #for some reason, you can't tell it..
+  #erb :index
+  # You have to redirect.
+  redirect "/"
+# redirect "/#{n.id}"
 end
 
 #this should show an individual post
 get "/premise/:id" do
-  @premise = params[:id]
+  @premise = Premsie.get(params[:id])
   erb :show 
 end
 
