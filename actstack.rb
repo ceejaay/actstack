@@ -1,29 +1,21 @@
 require 'sinatra'
 require './actstack_model'
 
-
 get "/" do
   @list = Premise.all
   erb :index
 end
 
-
 post "/new_premise" do
-#code to create premise
   n = Premise.new
+  #need to add save at time and other data.
   n.premise = params[:premise]
   n.save
-  #for some reason, you can't tell it..
-  #erb :index
-  # You have to redirect.
-  redirect "/"
-# redirect "/#{n.id}"
+  redirect "/#{n.id}"
 end
 
-#this should show an individual post
-get "/premise/:id" do
-  @premise = Premsie.get(params[:id])
-  erb :show 
+get "/ideas" do
+  markdown :README
 end
 
 get "/:id" do
@@ -31,8 +23,4 @@ get "/:id" do
   erb :show
 end
 
-
-get "/ideas" do
-  markdown :README
-end
 
