@@ -9,3 +9,13 @@
     </tr>
 </table>
 <a href=<%="/premise/#{@premise.id}/acts/new"%>>[New Act]</a>
+
+
+<table border="1">
+  <th>Acts</th>
+    <% @premise.acts.each do |item| %>
+    <tr>
+      <td><%= item.content %></td>
+    </tr>
+    <% end %>
+</table>
