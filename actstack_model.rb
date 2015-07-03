@@ -18,6 +18,7 @@ class Act
   belongs_to :premise
   property :id, Serial
   property :content, Text
+  property :act_number, Text
   
 end
 

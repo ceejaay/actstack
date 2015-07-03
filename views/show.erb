@@ -16,6 +16,9 @@
     <% @premise.acts.each do |item| %>
     <tr>
       <td><%= item.content %></td>
+      <td><%= item.act_number%></td>
     </tr>
     <% end %>
 </table>
+
+<%= @params %>

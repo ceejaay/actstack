@@ -35,6 +35,7 @@ post "/:id/acts" do
   @params = params
   act = @premise.acts.new
   act.content = params[:content] 
+  act.act_number = params[:act_number]
   act.save
   redirect "/premise/#{@params[:id]}"
 end
