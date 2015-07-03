@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require './actstack_model'
 
 get "/" do
@@ -11,16 +12,31 @@ post "/new_premise" do
   #need to add save at time and other data.
   n.premise = params[:premise]
   n.save
-  redirect "/#{n.id}"
+  redirect "/premise/#{n.id}"
 end
 
 get "/ideas" do
   markdown :README
 end
 
-get "/:id" do
+get "/premise/:id" do
   @premise = Premise.get params[:id]
   erb :show
+end
+
+get "/premise/:id/acts/new" do
+  @premise = Premise.get(params[:id])
+  puts @premise.id
+  erb :new_act
+end
+
+post "/:id/acts" do
+  @premise = Premise.get(params[:id])
+  @params = params
+  act = @premise.acts.new
+  act.content = params[:content] 
+  act.save
+  redirect "/premise/#{@params[:id]}"
 end
 
 
