@@ -2,6 +2,7 @@ Act Stack
 =========
 
   1. The first thing you should see when you get to this page is a list of premises. 
+    - The premises are arranged by upvotes.
     - A way to make a new premise.
     - You should be able to link to each premise.
 
@@ -34,6 +35,24 @@ Write your own acts.
      - You can see the act you just wrote at the top.
      - You can drag it into the lineup so you can  look at it with the other acts.
 
+Database Schema
+---------------
+  1. Premise
+    - author
+    - text or content
+    - time created
+    - email or other identifying data so the author can edit or something.
+    - upvotes
+    - time edited
+ 
+  2. Acts
+    - author
+    - text or content
+    - the premise it belongs to
+    - time created
+    - email or other info for the author to edit or delete.
+    - ???
+
 
 Shuffling acts
 --------------
@@ -45,14 +64,21 @@ Shuffling acts
     - You can place them in whatever order you want.
     - There's no saving. Just move them around.
     - You can tweet them when you are done.
+  3. How will we see the way you shifted the acts around?
+    - User log in?
+    - Some kind of uniquie link?
+    - Not sure how to do this.
 
 
 
 Random Ideas
 -----------
+  - I think we'll have 150 words for first and third act. Then 300 words for second act.
+  - There will be no accounts. You get an e-mail if you want to go back and edit your act or premise.
   - You can tweet the three acts simultaneneously
   - You can log in as a user and edit your own acts.
   - You can have revisions of one act based on another person's act that they have written.
     - Kind of like forking the act.
+  - Fork the premise too.
 
 
