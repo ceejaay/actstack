@@ -20,7 +20,6 @@ Click on a premise
         - Red for third act
     - in descending order of votes.
 
-
 Write your own acts.
 -------------------
 
@@ -53,7 +52,6 @@ Database Schema
     - email or other info for the author to edit or delete.
     - ???
 
-
 Shuffling acts
 --------------
 
@@ -65,11 +63,9 @@ Shuffling acts
     - There's no saving. Just move them around.
     - You can tweet them when you are done.
   3. How will we see the way you shifted the acts around?
-    - User log in?
-    - Some kind of uniquie link?
+    - ~~User log in?~~
+    - Some kind of unique link?
     - Not sure how to do this.
-
-
 
 Random Ideas
 -----------
@@ -80,5 +76,7 @@ Random Ideas
   - You can have revisions of one act based on another person's act that they have written.
     - Kind of like forking the act.
   - Fork the premise too.
+  - Why would you have upvotes if you want to switch them around?
+  - Maybe just the premises could just have upvotes?
 
 
