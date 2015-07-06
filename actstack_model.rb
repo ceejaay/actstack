@@ -8,7 +8,8 @@ class Premise
 
   property :id, Serial
   property :premise, Text
-  #need date and time created/modified
+  property :vote, Text, :default => 0
+ #need date and time created/modified
 
 end
 

@@ -14,13 +14,27 @@
 
 <table border="1">
   <th>Number</th>
-  <th>Here is the data</th>
-  <th>Link</th>
+  <th>Votes</th>
+  <th>Up Vote</th>
+  <th>Premise</th>
     <% @list.each do |item| %>
     <tr>
       <td><%= item.id %></td>
-      <td><%= item.premise %></td>
-      <td><a href="/premise/<%= item.id %>">Show</a></td>
+      <td><%= item.vote %></td>
+      <td>
+        <form action="/<%= item.id%>/1" method="post" >
+           <input type="hidden" name="_method" value="put" >
+           <input type="submit" value="^">
+        </form>
+      
+      </td>
+      <td><a href="/<%= item.id %>"><%= item.premise %></a></td>
     </tr>
     <% end %>
+
+
+
+
+
+
 </table>
