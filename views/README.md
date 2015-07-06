@@ -6,6 +6,28 @@ Act Stack
     - A way to make a new premise.
     - You should be able to link to each premise.
 
+Things to Do:
+------------
+  1. upvotes on acts
+  2. Limits on the acts and premise.
+    - Premise 140 char
+    - Act1 150 words.
+    - Act2 300 words
+    - Act3 150 words
+  3. Restrict blank entries
+  4. flash messages alerting user to a problem with entries.
+  5. Show top three acts on show premise page.
+    - show a list of other acts, in descending order of votes on side of page.
+  6. Show the premises in descending order by votes.
+  7. Be able to tweet premise with link to the actual story.
+  8. Ability to fork the premise and acts.
+  9. A system to keep track of stuff. Somekind of non-login system. Like the Chans.
+    - research tripcodes
+  10. All the html and css stuff. Haz to make it look good/ok.
+  11. The upvote systems is probably broken. Probably should research and fix it.
+  12. Needs a captcha system to keep out bots and spam.
+  13. A flagging system to keep out spam and bad content.
+
 Click on a premise
 -----------------
 
