@@ -22,13 +22,13 @@
       <td><%= item.id %></td>
       <td><%= item.vote %></td>
       <td>
-        <form action="/<%= item.id%>/1" method="post" >
+        <form action="/premise/<%= item.id%>/1" method="post" >
            <input type="hidden" name="_method" value="put" >
            <input type="submit" value="^">
         </form>
       
       </td>
-      <td><a href="/<%= item.id %>"><%= item.premise %></a></td>
+      <td><a href="/premise/<%= item.id %>"><%= item.premise %></a></td>
     </tr>
     <% end %>
 
