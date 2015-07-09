@@ -2,7 +2,6 @@ require 'sinatra'
 require 'sinatra/reloader'
 require './actstack_model'
 
-
 #upvote premise
 put "/premise/:id/:vote" do
   @premise = Premise.get(params[:id])
@@ -11,7 +10,6 @@ put "/premise/:id/:vote" do
   redirect "/"
 end
 
-#show index and all premise 
 get "/" do
   @list = Premise.all
   erb :index
@@ -49,7 +47,7 @@ post "/:id/acts" do
   @premise = Premise.get(params[:id])
   @params = params
   act = @premise.acts.new
-  act.content = params[:content] 
+  act.content = params[:content]
   act.act_number = params[:act_number]
   act.save
   redirect "/#{@params[:id]}"

@@ -1,7 +1,7 @@
 Act Stack
 =========
 
-  1. The first thing you should see when you get to this page is a list of premises. 
+  1. The first thing you should see when you get to this page is a list of premises.
     - The premises are arranged by upvotes.
     - A way to make a new premise.
     - You should be able to link to each premise.
@@ -23,6 +23,8 @@ Things to Do:
   8. Ability to fork the premise and acts.
   9. A system to keep track of stuff. Somekind of non-login system. Like the Chans.
     - research tripcodes
+    - [tripcodes](https://en.wikipedia.org/wiki/Imageboard#Tripcodes)
+    - There needs to be clear instructions on how the tripcodes work.
   10. All the html and css stuff. Haz to make it look good/ok.
   11. The upvote systems is probably broken. Probably should research and fix it.
   12. Needs a captcha system to keep out bots and spam.
@@ -35,7 +37,7 @@ Click on a premise
     - Below it will be the three top voted acts from each category.
       - Act 1, Act 2, Act 3 etc.
 
-  2. Off to the side you'll see all the other acts. 
+  2. Off to the side you'll see all the other acts.
     - They are color coded.
         - Green for first act.
         - Orange for second act
@@ -65,7 +67,7 @@ Database Schema
     - email or other identifying data so the author can edit or something.
     - upvotes
     - time edited
- 
+
   2. Acts
     - author
     - text or content
@@ -100,5 +102,3 @@ Random Ideas
   - Fork the premise too.
   - Why would you have upvotes if you want to switch them around?
   - Maybe just the premises could just have upvotes?
-
-

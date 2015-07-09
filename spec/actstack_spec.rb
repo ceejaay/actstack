@@ -13,12 +13,20 @@ describe "Actstack" do
     it "should allow access to index" do
       get "/"
       expect(last_response).to be_ok
-    end 
-
+    end
+=begin
     it "should have a form for a new premise" do
       pending "not sure how to test for forms"
       this_should_not_get_executed
     end
+=end
+  end
+
+  describe "actstack/premise/show" do
+    it "should allow access to the show page" do
+
+      get "/premise/1"
+      expect(last_response).to be_ok
+    end
   end
 end
-
