@@ -3,29 +3,25 @@ require './actstack'
 require 'rspec'
 require 'rack/test'
 
-describe "Actstack" do
+describe "The pages" do
+  #don't forget this when testing sinatra
   include Rack::Test::Methods
-  def app
-    Sinatra::Application
-  end
+    def app
+      Sinatra::Application
+    end
 
-  describe "actstack/index" do
-    it "should allow access to index" do
+  describe "home page" do 
+    it "should allow accessing the home page" do
       get "/"
       expect(last_response).to be_ok
+      #last_response.should be_ok
+      #expect(last_response.h1).to eq('Act Stack')
     end
-=begin
-    it "should have a form for a new premise" do
-      pending "not sure how to test for forms"
-      this_should_not_get_executed
-    end
-=end
   end
 
-  describe "actstack/premise/show" do
-    it "should allow access to the show page" do
-
-      get "/premise/1"
+  describe "the ideas page" do
+    it "should allow access to the idea page" do
+      get "/ideas"
       expect(last_response).to be_ok
     end
   end

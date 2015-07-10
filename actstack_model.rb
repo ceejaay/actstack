@@ -20,7 +20,7 @@ class Act
   property :id, Serial
   property :content, Text
   property :act_number, Text
-  
+
 end
 
 DataMapper.finalize.auto_upgrade!
