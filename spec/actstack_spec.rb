@@ -10,7 +10,7 @@ describe "The pages" do
       Sinatra::Application
     end
 
-  describe "home page" do 
+  describe "home page" do
     it "should allow accessing the home page" do
       get "/"
       expect(last_response).to be_ok
@@ -24,5 +24,14 @@ describe "The pages" do
       get "/ideas"
       expect(last_response).to be_ok
     end
+  end
+
+  describe "faq page" do
+    it "shoul allow access to the faq page" do
+      get "/faq"
+      expect(last_response).to be_ok
+
+    end
+
   end
 end

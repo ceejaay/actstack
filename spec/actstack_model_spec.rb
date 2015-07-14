@@ -12,18 +12,37 @@ end
 
 describe "the models" do
   include Rack::Test::Methods
-    def app
-      Sinatra::Application
+  def app
+    Sinatra::Application
+  end
+  describe "premise" do
+    describe "making a new model" do
+      it "should have a new premise" do
+        new_premise = Premise.new(premise: "hello world")
+        expect(new_premise.premise).to eq("hello world")
+      end
+#this needs implementation
+      it "the premise should not be nil" do
+        premise = Premise.new
+        expect(premise.premise).not_to eq(nil)
+
+      end
     end
-  
-    describe "new premise" do
-      lambda do
-        post "/new_premise", params = {
-          :premise => "a long time ago in a galaxy far far away",
-          :vote => 0
-        }
-      end.should {
-        change(Premise, :count).by(1)
-      }
+  end
+
+  describe "acts" do
+    describe "creating a new act" do
+      it "should create a new act" do
+        premise = Premise.new
+        act = premise.acts.new(content: "this is an act")
+        expect(act.content).to eq("this is an act")
+      end
+
+      it "should not be nil" do
+        premise = Premise.new
+        act = premise.acts.new
+        expect(act.content).not_to eq(nil)
+      end
     end
+  end
 end
