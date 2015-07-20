@@ -46,9 +46,7 @@ end
 post "/:id/acts" do
   @premise = Premise.get(params[:id])
   @params = params
-  act = @premise.acts.new
-  act.content = params[:content]
-  act.act_number = params[:act_number]
+  act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
   act.save
-  redirect "/#{@params[:id]}"
+  redirect "/premise/#{@params[:id]}"
 end
