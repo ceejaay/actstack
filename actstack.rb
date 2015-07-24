@@ -34,11 +34,6 @@ post "/new_premise" do
   redirect "/premise/#{n.id}"
 end
 
-#readme page
-get "/ideas" do
-  markdown :README
-end
-
 #show individual premise
 get "/premise/:id" do
   @premise = Premise.get params[:id]
