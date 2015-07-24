@@ -43,7 +43,7 @@ get "/premise/:id/acts/new" do
 end
 
 #new act post request
-post "/:id/acts" do
+post "/premise/:id/acts" do
   @premise = Premise.get(params[:id])
   @params = params
   act = @premise.acts.new(content: params[:content], act_number: params[:act_number])

@@ -7,8 +7,8 @@ class Premise
   has n, :acts
 
   property :id, Serial
-  property :premise, Text
-  property :vote, Text, :default => 0
+  property :premise, Text, :required => true
+  property :vote, Integer, :default => 0
  #need date and time created/modified
 
 end
@@ -18,8 +18,9 @@ class Act
   include DataMapper::Resource
   belongs_to :premise
   property :id, Serial
-  property :content, Text
+  property :content, Text, :required => true
   property :act_number, Text
+  property :vote, Integer, :default => 0
 
 end
 
