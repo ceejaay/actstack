@@ -12,12 +12,21 @@
 
 
 <table border="1">
+  <th>Upvote button</th>
   <th>Acts</th>
   <th>Act Number</th>
+  <th>Upvotes</th>
     <% @premise.acts.each do |item| %>
     <tr>
+      <td>
+        <form action="/premise/<%=@premise.id %>/act/<%= item.id%>/1" method="post">
+          <input type="hidden" name="_method" value="put">
+          <input type="submit" value="^">
+        </form>
+       </td>
       <td><%= item.content %></td>
       <td><%= item.act_number%></td>
+      <td><%= item.vote%></td>
     </tr>
     <% end %>
 </table>

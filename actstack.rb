@@ -10,6 +10,16 @@ put "/premise/:id/:vote" do
   redirect "/"
 end
 
+#upvote act
+put "/premise/:id/act/:act_id/:vote" do
+  @premise = Premise.get(params[:id])
+  @act = @premise.acts.get(params[:act_id])
+  @act.vote = @act.vote + params[:vote].to_i
+  @act.save
+  redirect "/premise/#{@premise.id}"
+end
+
+#get to index page
 get "/" do
   @list = Premise.all
   erb :index
@@ -35,7 +45,7 @@ get "/premise/:id" do
   erb :show
 end
 
-#new act form
+#new act request form
 get "/premise/:id/acts/new" do
   @premise = Premise.get(params[:id])
   puts @premise.id
@@ -48,5 +58,5 @@ post "/premise/:id/acts" do
   @params = params
   act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
   act.save
-  redirect "/premise/#{@params[:id]}"
+  redirect "/premise/#{@premise.id}"
 end

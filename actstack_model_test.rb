@@ -1,3 +1,4 @@
+#these are to make sure things get saved in the database.
 require File.expand_path '../test_helper.rb', __FILE__
 
 class ActStackModelTest < MiniTest::Test
