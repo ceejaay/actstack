@@ -30,6 +30,7 @@ post "/new_premise" do
   n = Premise.new
   #need to add save at time and other data.
   n.premise = params[:premise]
+  n.date_created = Time.now
   n.save
   redirect "/premise/#{n.id}"
 end
@@ -52,6 +53,7 @@ post "/premise/:id/acts" do
   @premise = Premise.get(params[:id])
   @params = params
   act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
+  act.date_created = Time.now
   act.save
   redirect "/premise/#{@premise.id}"
 end

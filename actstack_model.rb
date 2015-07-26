@@ -9,7 +9,9 @@ class Premise
   property :id, Serial
   property :premise, Text, :required => true
   property :vote, Integer, :default => 0
- #need date and time created/modified
+  property :date_created, DateTime
+  property :date_modified, DateTime
+  property :user, Text
 
 end
 
@@ -21,7 +23,9 @@ class Act
   property :content, Text, :required => true
   property :act_number, Text
   property :vote, Integer, :default => 0
-
+  property :date_created, DateTime
+  property :date_modified, DateTime
+  property :user, Text
 end
 
 DataMapper.finalize.auto_upgrade!
