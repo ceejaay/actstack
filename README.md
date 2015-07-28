@@ -8,7 +8,7 @@ Act Stack
 
 Things to Do:
 ------------
-  1. upvotes on acts
+  1. ✓upvotes on acts
   2. Limits on the acts and premise.
     - Premise 140 char
     - Act1 150 words.
