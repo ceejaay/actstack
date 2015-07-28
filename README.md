@@ -3,8 +3,11 @@ Act Stack
 
   1. The first thing you should see when you get to this page is a list of premises.
     - The premises are arranged by upvotes.
-    - A way to make a new premise.
-    - You should be able to link to each premise.
+    - ✓A way to make a new premise.
+    - ✓You should be able to link to each premise.
+    - ✓You will be able to see the acts when you click on the premise.
+      - ✓when you look at the show premise page you'll see a list of acts
+      - ✓You can upvote the acts
 
 Things to Do:
 ------------
