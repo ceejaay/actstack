@@ -7,7 +7,7 @@ put "/premise/:id/:vote" do
   @premise = Premise.get(params[:id])
   @premise.vote = @premise.vote.to_i + params[:vote].to_i
   @premise.save
-  redirect "/"
+  redirect back
 end
 
 #upvote act
@@ -16,12 +16,14 @@ put "/premise/:id/act/:act_id/:vote" do
   @act = @premise.acts.get(params[:act_id])
   @act.vote = @act.vote + params[:vote].to_i
   @act.save
-  redirect "/premise/#{@premise.id}"
+  redirect back
 end
 
 #get to index page
 get "/" do
+  params.inspect
   @list = Premise.all
+  @url = request.url
   erb :index
 end
 

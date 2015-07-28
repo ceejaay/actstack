@@ -2,10 +2,18 @@
   <th>The premise</th>
   <th>Edit?</th>
   <th>Delete</th>
+  <th>Upvote</th>
+  <th>Votes</th>
     <tr>
       <td><%= @premise.premise %></td>
       <td><%= "[edit]"%></td>
       <td><%= "[delete]"%></td>
+      <td>
+        <form action="/premise/<%= @premise.id%>/1" method="post" >
+           <input type="hidden" name="_method" value="put" >
+           <input type="submit" value="^">
+      </td>
+      <td><%= @premise.vote %></td>
     </tr>
 </table>
 
