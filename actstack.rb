@@ -1,23 +1,36 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require './actstack_model'
-
-#upvote premise
-put "/premise/:id/:vote" do
-  @premise = Premise.get(params[:id])
-  @premise.vote = @premise.vote.to_i + params[:vote].to_i
-  @premise.save
-  redirect back
-end
-
 #upvote act
 put "/premise/:id/act/:act_id/:vote" do
   @premise = Premise.get(params[:id])
   @act = @premise.acts.get(params[:act_id])
   @act.vote = @act.vote + params[:vote].to_i
   @act.save
+  #change the redirect to ??? not sure.
   redirect back
 end
+
+#upvote premise
+=begin
+put "/premise/:id/:vote" do
+  @premise = Premise.get(params[:id])
+  @premise.vote = @premise.vote.to_i + params[:vote].to_i
+  @premise.save
+  #change the redirect to ??? not sure.
+  redirect back
+end
+=end
+#new act
+post "/premise/:id/acts" do
+  @premise = Premise.get(params[:id])
+  @params = params
+  act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
+  act.date_created = Time.now
+  act.save
+  redirect "/premise/#{@premise.id}"
+end
+
 
 #get to index page
 get "/" do
