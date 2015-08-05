@@ -12,11 +12,14 @@
         <form action="/premise/<%= @premise.id%>/1" method="post" >
            <input type="hidden" name="_method" value="put" >
            <input type="submit" value="^">
+        </form>
       </td>
       <td><%= @premise.vote %></td>
     </tr>
 </table>
 <a href="/premise/<%=@premise.id%>/acts/new">[New Act]</a>
+
+<!-- the act table -->
 <table border="1">
   <th>Act ID </th>
   <th>Upvote button</th>
@@ -27,7 +30,7 @@
     <tr>
       <td><%= item.id %></td>
       <td>
-        <form action="/premise/<%=@premise.id %>/act/<%= item.id%>/1" method="post">
+        <form action="/premise/<%= item.premise_id%>/act/<%= item.id%>/1" method="post">
           <input type="hidden" name="_method" value="put">
           <input type="submit" value="^">
         </form>
