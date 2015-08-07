@@ -1,23 +1,25 @@
 Act Stack
 =========
 
+
   1. The first thing you should see when you get to this page is a list of premises.
     - The premises are arranged by upvotes.
-    - ✓A way to make a new premise.
-    - ✓You should be able to link to each premise.
-    - ✓You will be able to see the acts when you click on the premise.
-      - ✓when you look at the show premise page you'll see a list of acts
-      - ✓You can upvote the acts
+    - ~~✓A way to make a new premise.~~
+    - ~~✓You should be able to link to each premise.~~
+    - ~~✓You will be able to see the acts when you click on the premise.~~
+      - ~~✓when you look at the show premise page you'll see a list of acts~~
+      - We should change the upvote to clicks. Because if we don't have any gatekeeping. Like a user login system. Then upvotes are meaningless.
+      - ~~✓You can upvote the acts~~
 
 Things to Do:
 ------------
-  1. ✓upvotes on acts
+  1. ~~upvotes on acts~~
   2. Limits on the acts and premise.
     - Premise 140 char
     - Act1 150 words.
     - Act2 300 words
     - Act3 150 words
-  3. Restrict blank entries
+  3. **Restrict blank entries**
   4. flash messages alerting user to a problem with entries.
   5. Show top three acts on show premise page.
     - show a list of other acts, in descending order of votes on side of page.
@@ -29,7 +31,7 @@ Things to Do:
     - [tripcodes](https://en.wikipedia.org/wiki/Imageboard#Tripcodes)
     - There needs to be clear instructions on how the tripcodes work.
   10. All the html and css stuff. Haz to make it look good/ok.
-  11. The upvote systems is probably broken. Probably should research and fix it.
+  11. ~~The upvote systems is probably broken. Probably should research and fix it.~~
   12. Needs a captcha system to keep out bots and spam.
   13. A flagging system to keep out spam and bad content.
 
@@ -52,12 +54,13 @@ Write your own acts.
 
   1. You can write your own acts
     - There will be three buttons to go to a 'new act' page.
-      - These are all connecte to the premise page you are on.
+      - These are all connected to the premise page you are on.
         - You can't have an act without a premise.
 
-  2. The 'New Act' page has a blank field a save button and a character counter.
+  2. ~~The 'New Act' page has a blank field a save button~~ and a character counter.
+    - ~~New act form appears on premise show page~~
     - You can only write an act with 140 characters.
-    - Writing an act takes you back to the show premise page.
+    - ~~Writing an act takes you back to the show premise page.~~
      - You can see the act you just wrote at the top.
      - You can drag it into the lineup so you can  look at it with the other acts.
 
@@ -90,12 +93,13 @@ Shuffling acts
     - There's no saving. Just move them around.
     - You can tweet them when you are done.
   3. How will we see the way you shifted the acts around?
-    - ~~User log in?~~
-    - Some kind of unique link?
-    - Not sure how to do this.
+    - ~~User log in?~~ Tripcodes
+    - ~~Some kind of unique link?~~
 
 Random Ideas
 -----------
+  - There needs to be a way to rate for contents.
+    - R, PG, PG-13. Etc.
   - I think we'll have 150 words for first and third act. Then 300 words for second act.
   - There will be no accounts. You get an e-mail if you want to go back and edit your act or premise.
   - You can tweet the three acts simultaneneously
