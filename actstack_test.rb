@@ -47,6 +47,23 @@ class MyTest < MiniTest::Test
     assert last_response.ok?
   end
 
+  def test_that_premise_wont_save_without_premise
+    post "/new_premise", premise: ""
+    refute last_response.ok?
+  end
+
+  def test_save_failure_on_missing_act_text
+    post "/premise/#{@premise.id}/acts/new", content: ""
+    refute last_response.ok?
+  end
+
+  def test_that_premise_user_anonymous
+    post "/new_premise", premise: "test", user: ""
+    premise = Premise.last
+    assert_equal "Anonymous", premise.user
+  end
+
+
   def teardown
     Premise.all.destroy!
     Act.all.destroy!
