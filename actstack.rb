@@ -4,20 +4,15 @@ require './actstack_model'
 
 #get to index page
 get "/" do
-  params.inspect
   @list = Premise.all
   @url = request.url
   erb :index
 end
 
-#new act
-post "/premise/:id/acts" do
-  @premise = Premise.get(params[:id])
-  @params = params
-  act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
-  act.date_created = Time.now
-  act.save
-  redirect "/premise/#{@premise.id}"
+#show individual premise
+get "/premise/:id" do
+  @premise = Premise.get params[:id]
+  erb :show
 end
 
 #new premise post request
@@ -30,16 +25,21 @@ post "/new_premise" do
   redirect "/premise/#{n.id}"
 end
 
-#show individual premise
-get "/premise/:id" do
-  @premise = Premise.get params[:id]
-  erb :show
+#new act
+post "/premise/:id/acts" do
+  @premise = Premise.get(params[:id])
+  @params = params
+  act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
+  act.date_created = Time.now
+  act.save
+  redirect "/premise/#{@premise.id}"
 end
+
+
 
 #new act post request
 post "/premise/:id/acts" do
   @premise = Premise.get(params[:id])
-  @params = params
   act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
   act.date_created = Time.now
   act.save
@@ -53,7 +53,7 @@ put "/premise/:id/act/:act_id/:vote" do
   @act = @premise.acts.get(params[:act_id])
   @act.vote = @act.vote + params[:vote].to_i
   @act.save
-  redirect back 
+  redirect back
 end
 =end
 
