@@ -1,21 +1,13 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require './actstack_model'
-#upvote act
-put "/premise/:id/act/:act_id/:vote" do
-  @premise = Premise.get(params[:id])
-  @act = @premise.acts.get(params[:act_id])
-  @act.vote = @act.vote + params[:vote].to_i
-  @act.save
-  redirect back 
-end
 
-#upvote premise
-put "/premise/:id/:vote" do
-  @premise = Premise.get(params[:id])
-  @premise.vote = @premise.vote.to_i + params[:vote].to_i
-  @premise.save
-  redirect back
+#get to index page
+get "/" do
+  params.inspect
+  @list = Premise.all
+  @url = request.url
+  erb :index
 end
 
 #new act
@@ -26,15 +18,6 @@ post "/premise/:id/acts" do
   act.date_created = Time.now
   act.save
   redirect "/premise/#{@premise.id}"
-end
-
-
-#get to index page
-get "/" do
-  params.inspect
-  @list = Premise.all
-  @url = request.url
-  erb :index
 end
 
 #new premise post request
@@ -53,13 +36,6 @@ get "/premise/:id" do
   erb :show
 end
 
-#new act request form
-get "/premise/:id/acts/new" do
-  @premise = Premise.get(params[:id])
-  puts @premise.id
-  erb :new_act
-end
-
 #new act post request
 post "/premise/:id/acts" do
   @premise = Premise.get(params[:id])
@@ -69,3 +45,34 @@ post "/premise/:id/acts" do
   act.save
   redirect "/premise/#{@premise.id}"
 end
+
+#upvote act
+=begin
+put "/premise/:id/act/:act_id/:vote" do
+  @premise = Premise.get(params[:id])
+  @act = @premise.acts.get(params[:act_id])
+  @act.vote = @act.vote + params[:vote].to_i
+  @act.save
+  redirect back 
+end
+=end
+
+=begin
+#upvote premise
+put "/premise/:id/:vote" do
+  @premise = Premise.get(params[:id])
+  @premise.vote = @premise.vote.to_i + params[:vote].to_i
+  @premise.save
+  redirect back
+end
+=end
+
+=begin
+#new act request form
+
+get "/premise/:id/acts/new" do
+  @premise = Premise.get(params[:id])
+  puts @premise.id
+  erb :new_act
+end
+=end
