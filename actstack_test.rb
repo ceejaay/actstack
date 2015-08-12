@@ -1,4 +1,4 @@
-#these tests are to check for the routes. Make sure all the requests work.
+#thjese tests are to check for the routes. Make sure all the requests work.
 require File.expand_path '../test_helper.rb', __FILE__
 
 class MyTest < MiniTest::Test

@@ -7,7 +7,7 @@ put "/premise/:id/act/:act_id/:vote" do
   @act = @premise.acts.get(params[:act_id])
   @act.vote = @act.vote + params[:vote].to_i
   @act.save
-  redirect back
+  redirect back 
 end
 
 #upvote premise
