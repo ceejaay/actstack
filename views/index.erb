@@ -13,13 +13,15 @@
 
 <table border="1">
   <th>Number</th>
-  <th>Votes</th>
-  <th>Up Vote</th>
+<!--  <th>Votes</th> -->
+<!--  <th>Up Vote</th> -->
   <th>Premise</th>
     <% @list.each do |item| %>
     <tr>
+      <!-- item.id is for reference only remove for production -->
       <td><%= item.id %></td>
-      <td><%= item.vote %></td>
+    <!--  <td><%= item.vote %></td> -->
+      <!--
       <td>
         <form action="/premise/<%= item.id%>/1" method="post" >
            <input type="hidden" name="_method" value="put" >
@@ -27,9 +29,8 @@
         </form>
 
       </td>
+      -->
       <td><a href="/premise/<%= item.id %>"><%= item.premise %></a></td>
     </tr>
     <% end %>
 </table>
-<%= params.inspect %>
-<%= @url %>

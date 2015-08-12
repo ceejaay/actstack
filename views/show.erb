@@ -1,23 +1,24 @@
 <table border="1">
   <th>The premise</th>
-  <th>Edit?</th>
-  <th>Delete</th>
+ <!--  <th>Edit?</th>
+  <th>Delete</th> -->
+  <!-- 
   <th>Upvote</th>
-  <th>Votes</th>
+  <th>Votes</th> -->
     <tr>
       <td><%= @premise.premise %></td>
-      <td><%= "[edit]"%></td>
-      <td><%= "[delete]"%></td>
-      <td>
+   <!--   <td><%= "[edit]"%></td> -->
+   <!-- <td><%= "[delete]"%></td> -->
+   <!-- 
+    <td>
         <form action="/premise/<%= @premise.id%>/1" method="post" >
            <input type="hidden" name="_method" value="put" >
            <input type="submit" value="^">
         </form>
-      </td>
-      <td><%= @premise.vote %></td>
+      </td> -->
+  <!--    <td><%= @premise.vote %></td> -->
     </tr>
 </table>
-<a href="/premise/<%=@premise.id%>/acts/new">[New Act]</a>
 
 <form action="/premise/<%= @premise.id %>/acts"  method="post">
  <textarea rows="8" cols="25" type="text" name="content">
@@ -35,24 +36,23 @@
 <!-- the act table -->
 <table border="1">
   <th>Act ID </th>
-  <th>Upvote button</th>
+<!--  <th>Upvote button</th> -->
   <th>Acts</th>
   <th>Act Number</th>
-  <th>Upvotes</th>
+<!--  <th>Upvotes</th> -->
     <% @premise.acts.each do |item| %>
     <tr>
       <td><%= item.id %></td>
-      <td>
+    <!--   <td>
         <form action="/premise/<%= item.premise_id%>/act/<%= item.id%>/1" method="post">
           <input type="hidden" name="_method" value="put">
           <input type="submit" value="^">
         </form>
-       </td>
+       </td> -->
       <td><%= item.content %></td>
-      <td><%= item.act_number%></td>
-      <td><%= item.vote%></td>
+     <td><%= item.act_number%></td>
+ <!--     <td><%= item.vote%></td> -->
     </tr>
     <% end %>
 </table>
 
-<%= @params %>
