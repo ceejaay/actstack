@@ -35,8 +35,6 @@ post "/premise/:id/acts" do
   redirect "/premise/#{@premise.id}"
 end
 
-
-
 #new act post request
 post "/premise/:id/acts" do
   @premise = Premise.get(params[:id])
