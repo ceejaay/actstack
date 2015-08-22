@@ -1,6 +1,9 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require './actstack_model'
+require 'rack-flash'
+enable :sessions
+use Rack::Flash
 
 #get to index page
 get "/" do
@@ -18,11 +21,17 @@ end
 #new premise post request
 post "/new_premise" do
   n = Premise.new
-  #need to add save at time and other data.
   n.premise = params[:premise]
   n.date_created = Time.now
   n.save
+
+  if n.save
   redirect "/premise/#{n.id}"
+  else
+    flash[:premise_error] = n.errors[:premise]
+    redirect "/"
+  end
+
 end
 
 #new act
@@ -32,7 +41,12 @@ post "/premise/:id/acts" do
   act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
   act.date_created = Time.now
   act.save
-  redirect "/premise/#{@premise.id}"
+  if act.save
+    redirect "/premise/#{@premise.id}"
+  else
+    flash[:act_error] = act.errors[:content]
+    redirect "/premise/#{@premise.id}"
+  end
 end
 
 #new act post request

@@ -1,10 +1,12 @@
+<% if flash[:premise_error] %>
+  <%= flash[:premise_error] %>
+<% end %>
+
 <h1>Act Stack</h1></br>
 <p>Write a new premise</p>
 <form action="/new_premise" method="post">
- <textarea rows="8" cols="25" type="text" name="premise">A long time ago in a galaxy far, far away...
- </textarea>
- <!--<input type="text" name="premise" > -->
-
+  <textarea rows="8" cols="25" type="text" name="premise">
+  </textarea>
   <input type="submit">
 </form>
 
@@ -13,25 +15,12 @@
 
 <table border="1">
   <th>Number</th>
-<!--  <th>Votes</th> -->
-<!--  <th>Up Vote</th> -->
   <th>Premise</th>
     <% @list.each do |item| %>
     <tr>
-      <!-- item.id is for reference only remove for production -->
       <td><%= item.id %></td>
-    <!--  <td> #item.vote</td> -->
-      <!--
-      <td>
-        <form action="/premise/#item.id/1" method="post" >
-           <input type="hidden" name="_method" value="put" >
-           <input type="submit" value="^">
-        </form>
-
-      </td>
-      -->
       <td><a href="/premise/<%= item.id %>"><%= item.premise %></a></td>
     </tr>
     <% end %>
 </table>
-<div class="draggable"></div>
+

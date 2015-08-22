@@ -1,34 +1,18 @@
+<!-- message if act wasn't saved -->
+<% if flash[:act_error] %>
+  <%= flash[:act_error] %>
+<% end %>
+
 <table border="1">
   <th>The premise</th>
- <!--  <th>Edit?</th>
-  <th>Delete</th> -->
-  <!-- 
-  <th>Upvote</th>
-  <th>Votes</th> -->
     <tr>
       <td><%= @premise.premise %></td>
-   <!--   <td><%= "[edit]"%></td> -->
-   <!-- <td><%= "[delete]"%></td> -->
-   <!-- 
-    <td>
-        <form action="/premise/<%= @premise.id%>/1" method="post" >
-           <input type="hidden" name="_method" value="put" >
-           <input type="submit" value="^">
-        </form>
-      </td> -->
-  <!--    <td> the vote data goes here if we use it</td> -->
     </tr>
 </table>
 
 <form action="/premise/<%= @premise.id %>/acts"  method="post">
  <textarea rows="8" cols="25" type="text" name="content">
-   A farm boy learns friendship from an old man.
  </textarea>
- <select name="act_number">
-   <option value="1">Act 1</option>
-   <option value="2">Act 2</option>
-   <option value="3">Act 3</option>
- </select>
 <input type="submit">
 </form>
 
@@ -36,22 +20,11 @@
 <!-- the act table -->
 <table border="1">
   <th>Act ID </th>
-<!--  <th>Upvote button</th> -->
   <th>Acts</th>
-  <th>Act Number</th>
-<!--  <th>Upvotes</th> -->
     <% @premise.acts.each do |item| %>
     <tr>
-      <td><%= item.id %></td>
-    <!--   <td>
-        <form action="/premise/<%= item.premise_id%>/act/<%= item.id%>/1" method="post">
-          <input type="hidden" name="_method" value="put">
-          <input type="submit" value="^">
-        </form>
-       </td> -->
-      <td><%= item.content %></td>
-     <td><%= item.act_number%></td>
- <!--     <td>vote data for acts goes here if we use it.</td> -->
+       <td><%= item.id %></td>
+       <td><%= item.content %></td>
     </tr>
     <% end %>
 </table>
