@@ -3,7 +3,7 @@
   <%= flash[:act_error] %>
 <% end %>
 
-<table border="1">
+<table class="table table-bordered table-striped">
   <th>The premise</th>
     <tr>
       <td><%= @premise.premise %></td>
@@ -18,7 +18,7 @@
 
 
 <!-- the act table -->
-<table border="1">
+<table class="table table-bordered table-striped">
   <th>Act ID </th>
   <th>Acts</th>
     <% @premise.acts.each do |item| %>
