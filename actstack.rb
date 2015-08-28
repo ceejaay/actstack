@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'dotenv'
+Dotenv.load
 require './actstack_model'
 require 'rack-flash'
 enable :sessions
