@@ -2,14 +2,11 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'dotenv'
 Dotenv.load
-require 'rack/recaptcha'
 require './actstack_model'
 require 'rack-flash'
 enable :sessions
-use Rack::Recaptcha, :public_key => ENV["SITE_KEY"], :private_key => ENV["SECRET_KEY"]
-helpers Rack::Recaptcha::Helpers
 use Rack::Flash
-
+KEY = ENV["SITE_KEY"]
 #get to index page
 get "/" do
   @list = Premise.all
