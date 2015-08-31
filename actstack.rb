@@ -3,10 +3,12 @@ require 'sinatra/reloader'
 require 'dotenv'
 Dotenv.load
 require './actstack_model'
+require 'json'
+require 'net/http'
 require 'rack-flash'
 enable :sessions
 use Rack::Flash
-KEY = ENV["SITE_KEY"]
+
 #get to index page
 get "/" do
   @list = Premise.all
@@ -22,13 +24,18 @@ end
 
 #new premise post request
 post "/new_premise" do
+  uri = URI("https://www.google.com/recaptcha/api/siteverify")
+  res = Net::HTTP.post_form(uri, {"secret" => "<%=ENV['SECRET_KEY']%>", "response" => params['g-recaptcha-response']})
+  passed = JSON.parse(res.body)["success"]
+  puts passed
   n = Premise.new
   n.premise = params[:premise]
   n.date_created = Time.now
   n.save
-
+  
   if n.save
   redirect "/premise/#{n.id}"
+  puts params
   else
     flash[:premise_error] = n.errors[:premise]
     redirect "/"
@@ -39,7 +46,6 @@ end
 #new act
 post "/premise/:id/acts" do
   @premise = Premise.get(params[:id])
-  @params = params
   act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
   act.date_created = Time.now
   act.save
