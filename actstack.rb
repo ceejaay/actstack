@@ -45,6 +45,10 @@ end
 
 #new act
 post "/premise/:id/acts" do
+  uri = URI("https://www.google.com/recaptcha/api/siteverify")
+  res = Net::HTTP.post_form(uri, {"secret" => ENV['SECRET_KEY'], "response" => params['g-recaptcha-response']})
+  passed = JSON.parse(res.body)["success"]
+  puts passed
   @premise = Premise.get(params[:id])
   act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
   act.date_created = Time.now
