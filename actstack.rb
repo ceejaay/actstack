@@ -5,9 +5,10 @@ Dotenv.load
 require './actstack_model'
 require 'json'
 require 'net/http'
-require 'rack-flash'
+#require 'rack-flash'
+
 enable :sessions
-use Rack::Flash
+#use Rack::Flash
 
 #get to index page
 get "/" do
@@ -39,11 +40,11 @@ post "/new_premise" do
     redirect "/premise/#{n.id}"
     puts params
     else
-      flash[:premise_error] = n.errors[:premise]
+      #flash[:premise_error] = n.errors[:premise]
       redirect "/"
     end
   else
-    flash[:captcha_error] = "the captcha failed. Try again"
+    #flash[:captcha_error] = "the captcha failed. Try again"
     redirect "/"
   end
 end
@@ -62,11 +63,11 @@ post "/premise/:id/acts" do
     if act.save
       redirect "/premise/#{@premise.id}"
     else
-      flash[:act_error] = act.errors[:content]
+     # flash[:act_error] = act.errors[:content]
       redirect "/premise/#{@premise.id}"
     end
   else
-    flash[:captcha_error] = "The captcha failed. Try again"
+   # flash[:captcha_error] = "The captcha failed. Try again"
     redirect "/premise/#{@premise.id}"
   end
 end
