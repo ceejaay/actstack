@@ -24,39 +24,50 @@ end
 
 #new premise post request
 post "/new_premise" do
+#this code is a hot mess. See also new act post block
   uri = URI("https://www.google.com/recaptcha/api/siteverify")
   res = Net::HTTP.post_form(uri, {"secret" => ENV['SECRET_KEY'], "response" => params['g-recaptcha-response']})
   passed = JSON.parse(res.body)["success"]
-  puts passed
-  n = Premise.new
-  n.premise = params[:premise]
-  n.date_created = Time.now
-  n.save
-  
-  if n.save
-  redirect "/premise/#{n.id}"
-  puts params
+#here we check for the passing captcha.
+  if passed
+    n = Premise.new
+    n.premise = params[:premise]
+    n.date_created = Time.now
+    n.save
+    
+    if n.save
+    redirect "/premise/#{n.id}"
+    puts params
+    else
+      flash[:premise_error] = n.errors[:premise]
+      redirect "/"
+    end
   else
-    flash[:premise_error] = n.errors[:premise]
+    flash[:captcha_error] = "the captcha failed. Try again"
     redirect "/"
   end
-
 end
 
 #new act
 post "/premise/:id/acts" do
+#the hotness of this mess is hot.
   uri = URI("https://www.google.com/recaptcha/api/siteverify")
   res = Net::HTTP.post_form(uri, {"secret" => ENV['SECRET_KEY'], "response" => params['g-recaptcha-response']})
   passed = JSON.parse(res.body)["success"]
   puts passed
-  @premise = Premise.get(params[:id])
-  act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
-  act.date_created = Time.now
-  act.save
-  if act.save
-    redirect "/premise/#{@premise.id}"
+    @premise = Premise.get(params[:id])
+    act = @premise.acts.new(content: params[:content], act_number: params[:act_number])
+  if passed
+    act.date_created = Time.now
+    act.save
+    if act.save
+      redirect "/premise/#{@premise.id}"
+    else
+      flash[:act_error] = act.errors[:content]
+      redirect "/premise/#{@premise.id}"
+    end
   else
-    flash[:act_error] = act.errors[:content]
+    flash[:captcha_error] = "The captcha failed. Try again"
     redirect "/premise/#{@premise.id}"
   end
 end

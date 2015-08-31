@@ -1,5 +1,9 @@
-<% if flash[:premise_error] %>
+<!-- this is a hot mess, too. fix it -->
+<% if flash[:premise_error]  %>
   <%= flash[:premise_error] %>
+<% end %>
+<% if flash[:captcha_error]  %>
+  <%= flash[:captcha_error] %>
 <% end %>
 
 <h1>Act Stack</h1></br>
