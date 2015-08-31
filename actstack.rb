@@ -25,7 +25,7 @@ end
 #new premise post request
 post "/new_premise" do
   uri = URI("https://www.google.com/recaptcha/api/siteverify")
-  res = Net::HTTP.post_form(uri, {"secret" => "<%=ENV['SECRET_KEY']%>", "response" => params['g-recaptcha-response']})
+  res = Net::HTTP.post_form(uri, {"secret" => ENV['SECRET_KEY'], "response" => params['g-recaptcha-response']})
   passed = JSON.parse(res.body)["success"]
   puts passed
   n = Premise.new
