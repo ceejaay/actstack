@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/flash'
 require 'sinatra/reloader'
 require 'dotenv'
 Dotenv.load
@@ -40,11 +41,11 @@ post "/new_premise" do
     redirect "/premise/#{n.id}"
     puts params
     else
-      #flash[:premise_error] = n.errors[:premise]
+      flash[:premise_error] = n.errors[:premise]
       redirect "/"
     end
   else
-    #flash[:captcha_error] = "the captcha failed. Try again"
+    flash[:captcha_error] = "the captcha failed. Try again"
     redirect "/"
   end
 end
@@ -63,11 +64,11 @@ post "/premise/:id/acts" do
     if act.save
       redirect "/premise/#{@premise.id}"
     else
-     # flash[:act_error] = act.errors[:content]
+      flash[:act_error] = act.errors[:content]
       redirect "/premise/#{@premise.id}"
     end
   else
-   # flash[:captcha_error] = "The captcha failed. Try again"
+    flash[:captcha_error] = "The captcha failed. Try again"
     redirect "/premise/#{@premise.id}"
   end
 end
